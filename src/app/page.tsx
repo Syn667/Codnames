@@ -17,6 +17,7 @@ import {
   Zap,
   Flame,
   Award,
+  AlertCircle,
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -52,8 +53,12 @@ export default function HomePage() {
     setError(null);
 
     try {
-      localStorage.setItem('codnames_nickname', cleanNick);
-      localStorage.setItem('codnames_avatar_id', avatarId);
+      try {
+        localStorage.setItem('codnames_nickname', cleanNick);
+        localStorage.setItem('codnames_avatar_id', avatarId);
+      } catch (storageErr) {
+        console.warn('LocalStorage unavailable:', storageErr);
+      }
 
       const res = await fetch('/api/rooms', {
         method: 'POST',
@@ -73,10 +78,15 @@ export default function HomePage() {
       }
 
       if (data.playerId) {
-        localStorage.setItem('codnames_player_id', data.playerId);
+        try {
+          localStorage.setItem('codnames_player_id', data.playerId);
+        } catch (e) {
+          // ignore
+        }
       }
 
-      router.push(`/room/${data.room.code}`);
+      // Hard redirect to guarantee page loads reliably
+      window.location.assign(`/room/${data.room.code}`);
     } catch (err) {
       console.error('Room creation failed:', err);
       setError('Connection error. Please try again.');
@@ -93,11 +103,15 @@ export default function HomePage() {
     }
 
     if (nickname.trim()) {
-      localStorage.setItem('codnames_nickname', nickname.trim());
-      localStorage.setItem('codnames_avatar_id', avatarId);
+      try {
+        localStorage.setItem('codnames_nickname', nickname.trim());
+        localStorage.setItem('codnames_avatar_id', avatarId);
+      } catch (e) {
+        // ignore
+      }
     }
 
-    router.push(`/room/${cleanCode}`);
+    window.location.assign(`/room/${cleanCode}`);
   };
 
   return (
@@ -173,17 +187,13 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ERROR NOTIFICATION */}
-        {error && (
-          <div className="p-4 bg-rose-950/90 border border-rose-500 text-rose-200 rounded-2xl text-sm font-bold text-center">
-            {error}
-          </div>
-        )}
-
         {/* ACTION CARDS: CREATE OR JOIN */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* CREATE GAME CARD */}
-          <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between space-y-6">
+          <form
+            onSubmit={handleCreateRoom}
+            className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between space-y-6"
+          >
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-400 flex items-center justify-center shrink-0">
@@ -271,19 +281,38 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* In-Card Error Display */}
+            {error && (
+              <div className="p-3 bg-rose-950/90 border border-rose-500 text-rose-200 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
+                <span>{error}</span>
+              </div>
+            )}
+
             <button
-              type="button"
-              onClick={handleCreateRoom}
+              type="submit"
               disabled={loading || !nickname.trim()}
               className="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-display font-bold text-base uppercase tracking-wider rounded-2xl shadow-xl shadow-amber-950/40 flex items-center justify-center gap-2.5 transition-all duration-150 active:scale-[0.98] cursor-pointer"
             >
-              <Shield className="w-5 h-5" />
-              {loading ? 'Creating Secret Room...' : 'Create Mission Room'}
+              {loading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
+                  <span>Initiating Mission...</span>
+                </>
+              ) : (
+                <>
+                  <Shield className="w-5 h-5" />
+                  <span>Create Mission Room</span>
+                </>
+              )}
             </button>
-          </div>
+          </form>
 
           {/* JOIN GAME CARD */}
-          <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between space-y-6">
+          <form
+            onSubmit={handleJoinRoom}
+            className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between space-y-6"
+          >
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-400/20 text-blue-400 flex items-center justify-center shrink-0">
@@ -329,15 +358,14 @@ export default function HomePage() {
             </div>
 
             <button
-              type="button"
-              onClick={handleJoinRoom}
+              type="submit"
               disabled={!joinCode.trim()}
               className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 disabled:opacity-50 disabled:cursor-not-allowed text-white font-display font-bold text-base uppercase tracking-wider rounded-2xl shadow-xl shadow-blue-950/40 flex items-center justify-center gap-2.5 transition-all duration-150 active:scale-[0.98] cursor-pointer"
             >
               <LogIn className="w-5 h-5" />
               Join Room
             </button>
-          </div>
+          </form>
         </div>
 
         {/* EXPANSIONS DIRECTORY SHOWCASE */}

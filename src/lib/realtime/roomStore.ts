@@ -23,13 +23,22 @@ function getUpstashConfig() {
   return null;
 }
 
+const KVDB_BUCKET = process.env.KVDB_BUCKET_ID || 'UtHmE1vvzpXtizspikCxPC';
+
 /**
  * Fetch room by code (case-insensitive)
  */
 export async function getRoom(code: string): Promise<Room | null> {
   const normalizedCode = code.toLowerCase().trim();
-  const upstash = getUpstashConfig();
 
+  // 1. Check in-process memory first
+  const cached = memoryStore.get(normalizedCode);
+  if (cached) {
+    return cached;
+  }
+
+  // 2. Check Upstash Redis if configured
+  const upstash = getUpstashConfig();
   if (upstash) {
     try {
       const res = await fetch(`${upstash.url}/get/room:${normalizedCode}`, {
@@ -38,14 +47,32 @@ export async function getRoom(code: string): Promise<Room | null> {
       });
       const data = await res.json();
       if (data && data.result) {
-        return JSON.parse(data.result) as Room;
+        const room = JSON.parse(data.result) as Room;
+        memoryStore.set(normalizedCode, room);
+        return room;
       }
     } catch (err) {
-      console.error('Error fetching from Upstash Redis, falling back to memory:', err);
+      console.error('Error fetching from Upstash Redis, falling back to KV:', err);
     }
   }
 
-  return memoryStore.get(normalizedCode) || null;
+  // 3. Check distributed KV store for cross-lambda persistence on Vercel
+  try {
+    const res = await fetch(`https://kvdb.io/${KVDB_BUCKET}/room_${normalizedCode}`, {
+      cache: 'no-store',
+    });
+    if (res.ok) {
+      const room = await res.json() as Room;
+      if (room && room.code) {
+        memoryStore.set(normalizedCode, room);
+        return room;
+      }
+    }
+  } catch (err) {
+    console.error('Error fetching from distributed KV store:', err);
+  }
+
+  return null;
 }
 
 /**
@@ -55,10 +82,10 @@ export async function saveRoom(room: Room): Promise<void> {
   const normalizedCode = room.code.toLowerCase().trim();
   memoryStore.set(normalizedCode, room);
 
+  // 1. Save to Upstash Redis if configured
   const upstash = getUpstashConfig();
   if (upstash) {
     try {
-      // Set with 24-hour expiration (86400 seconds)
       await fetch(
         `${upstash.url}/set/room:${normalizedCode}/${encodeURIComponent(
           JSON.stringify(room)
@@ -71,6 +98,18 @@ export async function saveRoom(room: Room): Promise<void> {
     } catch (err) {
       console.error('Error persisting to Upstash Redis:', err);
     }
+  }
+
+  // 2. Persist to distributed KV store for all Vercel serverless functions
+  try {
+    await fetch(`https://kvdb.io/${KVDB_BUCKET}/room_${normalizedCode}`, {
+      method: 'POST',
+      body: JSON.stringify(room),
+      headers: { 'Content-Type': 'application/json' },
+      cache: 'no-store',
+    });
+  } catch (err) {
+    console.error('Error persisting to distributed KV store:', err);
   }
 }
 
@@ -91,5 +130,14 @@ export async function deleteRoom(code: string): Promise<void> {
     } catch (err) {
       console.error('Error deleting from Upstash Redis:', err);
     }
+  }
+
+  try {
+    await fetch(`https://kvdb.io/${KVDB_BUCKET}/room_${normalizedCode}`, {
+      method: 'DELETE',
+      cache: 'no-store',
+    });
+  } catch (err) {
+    console.error('Error deleting from distributed KV store:', err);
   }
 }
