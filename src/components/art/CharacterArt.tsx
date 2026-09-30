@@ -488,30 +488,56 @@ export const CharacterArt: React.FC<CharacterArtProps> = ({
         return (
           <g>
             <circle cx="60" cy="60" r="54" fill="#0F172A" stroke="#F59E0B" strokeWidth="2.5" />
-            {/* Cod Fish Body */}
+            <image href="/fish_transparent.png" x="14" y="14" width="92" height="92" preserveAspectRatio="xMidYMid meet" />
+          </g>
+        );
+
+      // AGENT HABIB (Suave International Infiltrator)
+      case 'habib':
+        return (
+          <g>
+            <circle cx="60" cy="60" r="54" fill="#4C0519" stroke="#F59E0B" strokeWidth="2" />
+            {/* Slicked dark coiffed hair */}
             <path
-              d="M 18 50 C 18 40, 28 32, 46 32 C 66 32, 82 38, 92 50 C 82 62, 66 68, 46 68 C 28 68, 18 60, 18 50 Z"
-              fill="#F59E0B"
+              d="M 36 38 
+                 C 34 20, 52 16, 68 16 
+                 C 84 16, 88 24, 86 40 
+                 C 82 28, 70 24, 58 24 
+                 C 44 24, 38 30, 36 38 Z"
+              fill="#18181B"
             />
-            {/* 3 Dorsal Fins */}
-            <path d="M 36 32 C 38 23, 44 23, 46 32 Z" fill="#F59E0B" />
-            <path d="M 50 32 C 52 21, 60 21, 62 32 Z" fill="#F59E0B" />
-            <path d="M 66 33 C 68 25, 74 25, 76 34 Z" fill="#F59E0B" />
-            {/* 2 Anal Fins */}
-            <path d="M 52 68 C 54 76, 60 76, 62 68 Z" fill="#F59E0B" />
-            <path d="M 66 67 C 68 74, 73 74, 75 66 Z" fill="#F59E0B" />
-            {/* Tail Fin */}
-            <path d="M 20 50 L 8 36 C 11 45, 11 55, 8 64 Z" fill="#F59E0B" />
-            {/* Chin Barbel Whisker */}
-            <path d="M 86 56 Q 88 64, 85 68" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round" fill="none" />
-            {/* Sunglasses */}
-            <polygon points="72,44 90,43 87,53 76,54" fill="#020617" stroke="#0F172A" strokeWidth="1.5" />
-            <line x1="72" y1="45" x2="68" y2="45" stroke="#0F172A" strokeWidth="1.5" />
-            <line x1="77" y1="46" x2="83" y2="46" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
-            {/* Bowtie */}
-            <polygon points="60,53 66,56 60,59" fill="#0F172A" />
-            <polygon points="56,53 50,56 56,59" fill="#0F172A" />
-            <circle cx="58" cy="56" r="1.5" fill="#FFFFFF" />
+            {/* Face */}
+            <path d="M 44 34 L 76 34 L 74 58 L 60 70 L 46 58 Z" fill="#D4A373" />
+            {/* Trimmed Suave Beard & Goatee */}
+            <path
+              d="M 46 56 
+                 L 50 62 
+                 L 60 72 
+                 L 70 62 
+                 L 74 56 
+                 L 72 63 
+                 L 60 74 
+                 L 48 63 Z"
+              fill="#18181B"
+            />
+            <path d="M 54 58 Q 60 60, 66 58" stroke="#18181B" strokeWidth="2" fill="none" strokeLinecap="round" />
+            {/* Gold Aviator Sunglasses */}
+            <path d="M 41 42 Q 56 38, 56 50 Q 54 56, 43 54 Z" fill="#0F172A" stroke="#F59E0B" strokeWidth="1.8" />
+            <path d="M 64 50 Q 64 38, 79 42 Q 77 54, 66 54 Z" fill="#0F172A" stroke="#F59E0B" strokeWidth="1.8" />
+            <line x1="56" y1="44" x2="64" y2="44" stroke="#F59E0B" strokeWidth="1.8" />
+            <line x1="44" y1="44" x2="52" y2="46" stroke="#FEF08A" strokeWidth="1" strokeLinecap="round" opacity="0.8" />
+            <line x1="68" y1="46" x2="76" y2="44" stroke="#FEF08A" strokeWidth="1" strokeLinecap="round" opacity="0.8" />
+            {/* Tailored Burgundy Suit & Crisp Shirt */}
+            <path d="M 28 105 L 42 66 L 78 66 L 92 105 Z" fill="#881337" />
+            {/* Shirt V-collar */}
+            <polygon points="52,66 68,66 60,86" fill="#F8FAFC" />
+            {/* Gold Tie */}
+            <polygon points="58,74 62,74 64,96 60,102 56,96" fill="#F59E0B" />
+            {/* Lapel edges */}
+            <path d="M 42 66 L 54 88 L 48 105" fill="none" stroke="#4C0519" strokeWidth="2" />
+            <path d="M 78 66 L 66 88 L 72 105" fill="none" stroke="#4C0519" strokeWidth="2" />
+            {/* Gold Pocket Square */}
+            <polygon points="76,86 82,82 86,88" fill="#F59E0B" />
           </g>
         );
 

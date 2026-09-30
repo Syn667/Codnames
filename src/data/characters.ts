@@ -209,13 +209,22 @@ export const CHARACTERS: Record<string, CharacterArtInfo> = {
     description: 'Has a gigantic brain and bulbous cranium, but struggles to fit through doorways.',
   },
 
-  // Demolition / Boomer (Explosives Specialist)
+  // Demolition / Nitro (Explosives Specialist)
   demolition: {
     id: 'demolition',
-    name: 'Boomer',
+    name: 'Nitro',
     category: 'red',
     title: 'Explosives Specialist',
-    description: 'Ordnance master equipped with goggles, dynamite sticks, and a remote detonator.',
+    description: 'Ordnance master equipped with goggles, defusal kit, and remote detonator.',
+  },
+
+  // Agent Habib (Suave International Operative)
+  habib: {
+    id: 'habib',
+    name: 'Habib',
+    category: 'red',
+    title: 'The Diplomatic Infiltrator',
+    description: 'Suave international secret agent in a tailored suit and gold aviators.',
   },
 
   // Agent Seoul
@@ -250,9 +259,10 @@ export const AVATAR_OPTIONS = [
   { id: 'cod_agent', name: 'Agent Cod', team: 'spectator' },
   { id: 'gronk', name: 'Gronk', team: 'spectator' },
   { id: 'bighead', name: 'Bighead', team: 'blue' },
-  { id: 'demolition', name: 'Boomer', team: 'red' },
-  { id: 'agent_k', name: 'Agent Seoul', team: 'blue' },
+  { id: 'habib', name: 'Habib', team: 'red' },
   { id: 'tank', name: 'Tank', team: 'red' },
+  { id: 'agent_k', name: 'Agent Seoul', team: 'blue' },
+  { id: 'demolition', name: 'Nitro', team: 'red' },
   { id: 'red_1', name: 'Crimson', team: 'red' },
   { id: 'blue_1', name: 'Cobalt', team: 'blue' },
   { id: 'assassin_1', name: 'Shadow', team: 'spectator' },

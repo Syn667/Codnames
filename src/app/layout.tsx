@@ -23,6 +23,13 @@ export const metadata: Metadata = {
   title: "Codnames — Online Multiplayer Espionage Game",
   description: "Play Codnames online with friends. The definitive spy party game with all 14 official expansion packs, real-time multiplayer, and custom word decks.",
   keywords: ["codnames", "codenames", "online board game", "word game", "party game", "espionage", "spymaster"],
+  icons: {
+    icon: [
+      { url: '/cod_badge_icon.png', type: 'image/png' },
+      { url: '/favicon.ico' },
+    ],
+    apple: '/cod_badge_icon.png',
+  },
 };
 
 export default function RootLayout({
