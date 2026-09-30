@@ -515,6 +515,154 @@ export const CharacterArt: React.FC<CharacterArtProps> = ({
           </g>
         );
 
+      // GRONK (The Clueless Rookie)
+      case 'gronk':
+        return (
+          <g>
+            <circle cx="60" cy="60" r="54" fill="#292524" stroke="#F59E0B" strokeWidth="2" />
+            {/* Crooked Fedora tilted sideways */}
+            <path d="M 24 38 C 28 24, 60 16, 76 30 C 86 38, 92 48, 86 50 C 78 52, 34 46, 24 38 Z" fill="#78350F" />
+            <path d="M 40 32 C 44 20, 68 18, 72 28 Z" fill="#92400E" />
+            {/* Face */}
+            <circle cx="60" cy="56" r="22" fill="#E8C7A7" />
+            {/* Cross-eyed / wonky goofy eyes */}
+            <circle cx="50" cy="52" r="7" fill="#FFFFFF" stroke="#1C1917" strokeWidth="1.5" />
+            <circle cx="70" cy="52" r="7" fill="#FFFFFF" stroke="#1C1917" strokeWidth="1.5" />
+            {/* Wonky pupils pointing towards center/up */}
+            <circle cx="53" cy="52" r="3.5" fill="#0F172A" />
+            <circle cx="67" cy="50" r="3.5" fill="#0F172A" />
+            {/* Bandaid on forehead */}
+            <rect x="42" y="40" width="16" height="5" rx="1.5" fill="#D97706" transform="rotate(-15 42 40)" opacity="0.85" />
+            {/* Wide goofy bucktooth smile */}
+            <path d="M 48 64 Q 60 74, 72 64" fill="none" stroke="#1C1917" strokeWidth="2.5" strokeLinecap="round" />
+            <rect x="57" y="65" width="6" height="5" rx="1" fill="#FFFFFF" stroke="#1C1917" strokeWidth="1" />
+            {/* Crooked collar and wildly skewed tie */}
+            <path d="M 36 105 L 48 78 L 60 84 L 72 78 L 84 105 Z" fill="#44403C" />
+            <polygon points="58,84 68,88 56,104 50,102" fill="#DC2626" />
+          </g>
+        );
+
+      // BIGHEAD (The Cranial Strategist)
+      case 'bighead':
+        return (
+          <g>
+            <circle cx="60" cy="60" r="54" fill="#0F172A" stroke="#3B82F6" strokeWidth="2" />
+            {/* Enormous Lightbulb-shaped Cranium */}
+            <path
+              d="M 22 44 
+                 C 16 16, 104 16, 98 44 
+                 C 94 62, 78 72, 60 74 
+                 C 42 72, 26 62, 22 44 Z"
+              fill="#DFC0A4"
+            />
+            {/* Faint cranial brain contour lines */}
+            <path d="M 40 28 Q 60 20, 80 28" fill="none" stroke="#C8A585" strokeWidth="2" strokeLinecap="round" />
+            <path d="M 46 22 Q 60 16, 74 22" fill="none" stroke="#C8A585" strokeWidth="2" strokeLinecap="round" />
+            {/* Oversized Thick Magnifying Glasses */}
+            <rect x="28" y="42" width="28" height="20" rx="6" fill="#60A5FA" fillOpacity="0.4" stroke="#1E3A8A" strokeWidth="2.5" />
+            <rect x="64" y="42" width="28" height="20" rx="6" fill="#60A5FA" fillOpacity="0.4" stroke="#1E3A8A" strokeWidth="2.5" />
+            <line x1="56" y1="52" x2="64" y2="52" stroke="#1E3A8A" strokeWidth="2.5" />
+            {/* Concentric swirl pupils (Genius eyes) */}
+            <circle cx="42" cy="52" r="5" fill="#1E293B" />
+            <circle cx="78" cy="52" r="5" fill="#1E293B" />
+            {/* Tiny comedic mouth & nose */}
+            <circle cx="60" cy="62" r="1.5" fill="#78350F" />
+            <path d="M 56 68 Q 60 70, 64 68" fill="none" stroke="#78350F" strokeWidth="1.5" strokeLinecap="round" />
+            {/* Comically small body & shoulders */}
+            <path d="M 44 105 L 50 78 L 70 78 L 76 105 Z" fill="#1E40AF" />
+            <polygon points="58,82 62,82 60,94" fill="#93C5FD" />
+          </g>
+        );
+
+      // DEMOLITION / BOOMER (Explosives Specialist)
+      case 'demolition':
+        return (
+          <g>
+            <circle cx="60" cy="60" r="54" fill="#3B0764" stroke="#DC2626" strokeWidth="2" />
+            {/* Industrial Safety Goggles */}
+            <path d="M 28 44 C 28 32, 44 26, 60 26 C 76 26, 92 32, 92 44 Z" fill="#18181B" />
+            <circle cx="44" cy="46" r="10" fill="#EA580C" stroke="#71717A" strokeWidth="2" />
+            <circle cx="76" cy="46" r="10" fill="#EA580C" stroke="#71717A" strokeWidth="2" />
+            <line x1="54" y1="46" x2="66" y2="46" stroke="#27272A" strokeWidth="3" />
+            {/* Face with smudge of ash */}
+            <path d="M 44 48 C 44 60, 50 68, 60 68 C 70 68, 76 60, 76 48 Z" fill="#D4A373" />
+            <ellipse cx="68" cy="60" rx="5" ry="3" fill="#27272A" opacity="0.6" />
+            {/* Gritted smile */}
+            <line x1="52" y1="62" x2="66" y2="62" stroke="#18181B" strokeWidth="2" strokeLinecap="round" />
+            {/* Heavy Blast Vest */}
+            <path d="M 28 105 L 42 70 L 78 70 L 92 105 Z" fill="#7F1D1D" />
+            {/* Dynamite Sticks strapped across chest */}
+            <rect x="36" y="80" width="10" height="22" rx="2" fill="#DC2626" stroke="#991B1B" strokeWidth="1" />
+            <rect x="48" y="80" width="10" height="22" rx="2" fill="#DC2626" stroke="#991B1B" strokeWidth="1" />
+            <rect x="60" y="80" width="10" height="22" rx="2" fill="#DC2626" stroke="#991B1B" strokeWidth="1" />
+            {/* Yellow warning hazard tape across vest */}
+            <line x1="32" y1="90" x2="88" y2="90" stroke="#FBBF24" strokeWidth="3" strokeDasharray="6 3" />
+          </g>
+        );
+
+      // AGENT SEOUL (Sleek Counter-Intelligence Operative)
+      case 'agent_k':
+        return (
+          <g>
+            <circle cx="60" cy="60" r="54" fill="#0B132B" stroke="#38BDF8" strokeWidth="2" />
+            {/* Stylish Two-Block Haircut */}
+            <path
+              d="M 34 40 
+                 C 32 20, 54 16, 68 18 
+                 C 82 20, 88 28, 86 44 
+                 C 82 32, 72 26, 60 26 
+                 C 44 26, 38 32, 34 40 Z"
+              fill="#0F172A"
+            />
+            {/* Sharp Jawline Face */}
+            <path d="M 44 38 L 76 38 L 72 62 L 60 70 L 48 62 Z" fill="#DFC0A4" />
+            {/* Sleek Minimalist Sunglasses */}
+            <polygon points="43,44 57,44 55,51 45,51" fill="#020617" />
+            <polygon points="63,44 77,44 75,51 65,51" fill="#020617" />
+            <line x1="57" y1="46" x2="63" y2="46" stroke="#020617" strokeWidth="1.5" />
+            {/* Cool Glint */}
+            <line x1="46" y1="46" x2="52" y2="46" stroke="#38BDF8" strokeWidth="1" strokeLinecap="round" />
+            {/* Glowing Tactical Blue In-Ear Communicator */}
+            <circle cx="41" cy="48" r="2.5" fill="#38BDF8" />
+            <path d="M 41 48 Q 43 56, 48 58" fill="none" stroke="#38BDF8" strokeWidth="1" />
+            {/* Black Tactical Turtleneck & Navy Spy Coat */}
+            <path d="M 28 105 L 42 66 L 78 66 L 92 105 Z" fill="#1E3A8A" />
+            <rect x="52" y="66" width="16" height="12" rx="2" fill="#0B132B" />
+          </g>
+        );
+
+      // TANK (Colossal Muscle Enforcer)
+      case 'tank':
+        return (
+          <g>
+            <circle cx="60" cy="60" r="54" fill="#450A0A" stroke="#EF4444" strokeWidth="2" />
+            {/* Colossal Trapezius and Shoulder Muscles taking up the entire screen */}
+            <path
+              d="M 12 105 
+                 L 22 58 
+                 L 46 54 
+                 L 74 54 
+                 L 98 58 
+                 L 108 105 Z"
+              fill="#B91C1C"
+            />
+            {/* Muscular neck */}
+            <rect x="46" y="44" width="28" height="24" fill="#D4A373" />
+            {/* Broad Square-Jaw Head with Buzzcut */}
+            <path d="M 44 32 C 44 24, 52 22, 60 22 C 68 22, 76 24, 76 32 L 76 48 L 44 48 Z" fill="#292524" />
+            <path d="M 44 38 L 76 38 L 74 56 L 68 60 L 52 60 L 46 56 Z" fill="#E8C7A7" />
+            {/* Massive Square Chin Cleft */}
+            <line x1="60" y1="56" x2="60" y2="59" stroke="#78350F" strokeWidth="2" />
+            {/* Comically Tiny Black Sunglasses on Giant Face */}
+            <rect x="49" y="42" width="10" height="5" rx="1.5" fill="#09090B" />
+            <rect x="61" y="42" width="10" height="5" rx="1.5" fill="#09090B" />
+            <line x1="59" y1="44" x2="61" y2="44" stroke="#09090B" strokeWidth="1.5" />
+            {/* Muscle striation lines on shoulders */}
+            <path d="M 28 72 Q 40 70, 46 80" fill="none" stroke="#7F1D1D" strokeWidth="3" />
+            <path d="M 92 72 Q 80 70, 74 80" fill="none" stroke="#7F1D1D" strokeWidth="3" />
+          </g>
+        );
+
       // THE ASSASSIN (Instant Defeat)
       case 'assassin_1':
       default:

@@ -27,9 +27,9 @@ export const CodLogo: React.FC<CodLogoProps> = ({
 
   return (
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
-      {/* SECRET AGENT COD FISH ICON */}
+      {/* SIMPLIFIED MINIMALIST SPY CODFISH BADGE */}
       <div
-        className={`${iconSizes[size]} relative rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 p-1 flex items-center justify-center shadow-lg shadow-amber-950/50 group-hover:scale-105 transition-transform shrink-0`}
+        className={`${iconSizes[size]} relative rounded-2xl bg-gradient-to-br from-amber-400 to-amber-500 p-1 flex items-center justify-center shadow-lg shadow-amber-950/40 group-hover:scale-105 transition-transform shrink-0`}
       >
         <svg
           viewBox="0 0 100 100"
@@ -37,82 +37,47 @@ export const CodLogo: React.FC<CodLogoProps> = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Main Cod Body (Streamlined Atlantic Cod profile) */}
+          {/* Minimalist Fish Body */}
           <path
-            d="M 12 50 
-               C 12 40, 24 32, 42 32 
-               C 62 32, 78 38, 88 50 
-               C 78 62, 62 68, 42 68 
-               C 24 68, 12 60, 12 50 Z"
+            d="M 18 50 
+               C 24 34, 46 34, 68 40 
+               C 80 43, 88 50, 88 50 
+               C 88 50, 80 57, 68 60 
+               C 46 66, 24 66, 18 50 Z"
             fill="#0F172A"
           />
 
-          {/* Three Distinctive Cod Dorsal Fins (Top) */}
-          <path d="M 32 32 C 34 23, 40 23, 42 32 Z" fill="#0F172A" />
-          <path d="M 46 32 C 48 21, 56 21, 58 32 Z" fill="#0F172A" />
-          <path d="M 62 33 C 64 25, 70 25, 72 34 Z" fill="#0F172A" />
+          {/* Clean Top Fin */}
+          <path d="M 40 35 C 48 24, 62 26, 64 39 Z" fill="#0F172A" />
 
-          {/* Two Anal Fins (Bottom) */}
-          <path d="M 48 68 C 50 76, 56 76, 58 68 Z" fill="#0F172A" />
-          <path d="M 62 67 C 64 74, 69 74, 71 66 Z" fill="#0F172A" />
+          {/* Clean Tail Fin */}
+          <polygon points="20,50 6,32 10,50 6,68" fill="#0F172A" />
 
-          {/* Broad Cod Tail Fin */}
+          {/* Cod Chin Barbel ("Whisker") */}
           <path
-            d="M 14 50 
-               L 4 36 
-               C 7 45, 7 55, 4 64 
-               Z"
-            fill="#0F172A"
-          />
-
-          {/* Subtle Cod Lateral Line (Sensor line on true cod) */}
-          <path
-            d="M 22 51 C 36 49, 52 46, 72 50"
-            stroke="#1E293B"
-            strokeWidth="1.5"
-            strokeDasharray="2 2"
-          />
-
-          {/* Iconic Cod Chin Barbel (The "goatee/mic" whisker under chin) */}
-          <path
-            d="M 82 56 Q 84 64, 81 68"
+            d="M 80 54 Q 82 63, 78 65"
             stroke="#0F172A"
-            strokeWidth="2.5"
+            strokeWidth="3"
             strokeLinecap="round"
           />
 
-          {/* Secret Agent Sunglasses (Wayfarer style covering eye) */}
+          {/* Bold Spy Sunglasses */}
           <polygon
-            points="68,44 86,43 83,53 72,54"
+            points="62,44 82,43 78,54 65,54"
             fill="#020617"
             stroke="#F59E0B"
             strokeWidth="1.5"
           />
-          {/* Glasses Frame Bridge */}
+          {/* White glint highlight on lens */}
           <line
             x1="68"
-            y1="45"
-            x2="64"
-            y2="45"
-            stroke="#F59E0B"
-            strokeWidth="1.5"
-          />
-          {/* Specular White Glint on Sunglasses */}
-          <line
-            x1="73"
             y1="46"
-            x2="79"
+            x2="76"
             y2="46"
             stroke="#FFFFFF"
             strokeWidth="1.5"
             strokeLinecap="round"
-            opacity="0.85"
           />
-
-          {/* Secret Agent Trench Collar / Bowtie Accent */}
-          <polygon points="56,53 62,56 56,59" fill="#F59E0B" />
-          <polygon points="52,53 46,56 52,59" fill="#F59E0B" />
-          <circle cx="54" cy="56" r="1.5" fill="#FFFFFF" />
         </svg>
       </div>
 

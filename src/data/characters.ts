@@ -191,6 +191,51 @@ export const CHARACTERS: Record<string, CharacterArtInfo> = {
     description: 'The elusive Secret Agent Codfish wearing sunglasses and bowtie.',
   },
 
+  // Gronk (The Clueless Rookie)
+  gronk: {
+    id: 'gronk',
+    name: 'Gronk',
+    category: 'bystander',
+    title: 'Clueless Operative',
+    description: 'A completely bewildered rookie spy with goofy eyes, bandaid, and crooked tie.',
+  },
+
+  // Bighead (The Megamind)
+  bighead: {
+    id: 'bighead',
+    name: 'Bighead',
+    category: 'blue',
+    title: 'Cranial Strategist',
+    description: 'Has a gigantic brain and bulbous cranium, but struggles to fit through doorways.',
+  },
+
+  // Demolition / Boomer (Explosives Specialist)
+  demolition: {
+    id: 'demolition',
+    name: 'Boomer',
+    category: 'red',
+    title: 'Explosives Specialist',
+    description: 'Ordnance master equipped with goggles, dynamite sticks, and a remote detonator.',
+  },
+
+  // Agent Seoul
+  agent_k: {
+    id: 'agent_k',
+    name: 'Agent Seoul',
+    category: 'blue',
+    title: 'Sleek Counter-Intelligence',
+    description: 'Ultra-sharp Korean field operative in black turtleneck and tactical earpiece.',
+  },
+
+  // Tank
+  tank: {
+    id: 'tank',
+    name: 'Tank',
+    category: 'red',
+    title: 'Heavy Enforcer',
+    description: 'Towering powerhouse with colossal trapezius muscles and tiny sunglasses.',
+  },
+
   // The Assassin
   assassin_1: {
     id: 'assassin_1',
@@ -203,13 +248,12 @@ export const CHARACTERS: Record<string, CharacterArtInfo> = {
 
 export const AVATAR_OPTIONS = [
   { id: 'cod_agent', name: 'Agent Cod', team: 'spectator' },
+  { id: 'gronk', name: 'Gronk', team: 'spectator' },
+  { id: 'bighead', name: 'Bighead', team: 'blue' },
+  { id: 'demolition', name: 'Boomer', team: 'red' },
+  { id: 'agent_k', name: 'Agent Seoul', team: 'blue' },
+  { id: 'tank', name: 'Tank', team: 'red' },
   { id: 'red_1', name: 'Crimson', team: 'red' },
-  { id: 'red_2', name: 'Rouge', team: 'red' },
-  { id: 'red_3', name: 'Scarlett', team: 'red' },
   { id: 'blue_1', name: 'Cobalt', team: 'blue' },
-  { id: 'blue_2', name: 'Sapphire', team: 'blue' },
-  { id: 'blue_3', name: 'Indigo', team: 'blue' },
-  { id: 'bystander_1', name: 'Tourist', team: 'spectator' },
-  { id: 'bystander_2', name: 'Barista', team: 'spectator' },
   { id: 'assassin_1', name: 'Shadow', team: 'spectator' },
 ];
