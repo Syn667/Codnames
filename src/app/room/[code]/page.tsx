@@ -13,6 +13,7 @@ import { GameOverModal } from '@/components/game/GameOverModal';
 import { NicknameModal } from '@/components/game/NicknameModal';
 import { GameLogDrawer } from '@/components/game/GameLogDrawer';
 import { AvatarIcon } from '@/components/art/AvatarIcon';
+import { CodLogo } from '@/components/art/CodLogo';
 import { sound } from '@/lib/sound';
 import {
   Share2,
@@ -235,12 +236,7 @@ export default function RoomPage() {
               className="flex items-center gap-2 group"
               title="Return to Home"
             >
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-black text-slate-950 text-base shadow-md group-hover:scale-105 transition-transform">
-                C
-              </div>
-              <span className="font-black text-base tracking-wider uppercase hidden sm:inline text-white">
-                Cod<span className="text-amber-400">names</span>
-              </span>
+              <CodLogo size="sm" showText={true} />
             </button>
 
             {/* Room code tag */}

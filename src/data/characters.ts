@@ -182,6 +182,15 @@ export const CHARACTERS: Record<string, CharacterArtInfo> = {
     description: 'Scattering crumbs in the plaza surrounded by a flurry of city birds.',
   },
 
+  // The Secret Agent Cod
+  cod_agent: {
+    id: 'cod_agent',
+    name: 'Agent Cod',
+    category: 'bystander',
+    title: 'Secret Agent Codfish',
+    description: 'The elusive Secret Agent Codfish wearing sunglasses and bowtie.',
+  },
+
   // The Assassin
   assassin_1: {
     id: 'assassin_1',
@@ -193,6 +202,7 @@ export const CHARACTERS: Record<string, CharacterArtInfo> = {
 };
 
 export const AVATAR_OPTIONS = [
+  { id: 'cod_agent', name: 'Agent Cod', team: 'spectator' },
   { id: 'red_1', name: 'Crimson', team: 'red' },
   { id: 'red_2', name: 'Rouge', team: 'red' },
   { id: 'red_3', name: 'Scarlett', team: 'red' },
@@ -201,6 +211,5 @@ export const AVATAR_OPTIONS = [
   { id: 'blue_3', name: 'Indigo', team: 'blue' },
   { id: 'bystander_1', name: 'Tourist', team: 'spectator' },
   { id: 'bystander_2', name: 'Barista', team: 'spectator' },
-  { id: 'bystander_4', name: 'Reader', team: 'spectator' },
   { id: 'assassin_1', name: 'Shadow', team: 'spectator' },
 ];

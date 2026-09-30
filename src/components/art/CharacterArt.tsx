@@ -483,6 +483,38 @@ export const CharacterArt: React.FC<CharacterArtProps> = ({
           </g>
         );
 
+      // THE SECRET AGENT COD
+      case 'cod_agent':
+        return (
+          <g>
+            <circle cx="60" cy="60" r="54" fill="#0F172A" stroke="#F59E0B" strokeWidth="2.5" />
+            {/* Cod Fish Body */}
+            <path
+              d="M 18 50 C 18 40, 28 32, 46 32 C 66 32, 82 38, 92 50 C 82 62, 66 68, 46 68 C 28 68, 18 60, 18 50 Z"
+              fill="#F59E0B"
+            />
+            {/* 3 Dorsal Fins */}
+            <path d="M 36 32 C 38 23, 44 23, 46 32 Z" fill="#F59E0B" />
+            <path d="M 50 32 C 52 21, 60 21, 62 32 Z" fill="#F59E0B" />
+            <path d="M 66 33 C 68 25, 74 25, 76 34 Z" fill="#F59E0B" />
+            {/* 2 Anal Fins */}
+            <path d="M 52 68 C 54 76, 60 76, 62 68 Z" fill="#F59E0B" />
+            <path d="M 66 67 C 68 74, 73 74, 75 66 Z" fill="#F59E0B" />
+            {/* Tail Fin */}
+            <path d="M 20 50 L 8 36 C 11 45, 11 55, 8 64 Z" fill="#F59E0B" />
+            {/* Chin Barbel Whisker */}
+            <path d="M 86 56 Q 88 64, 85 68" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round" fill="none" />
+            {/* Sunglasses */}
+            <polygon points="72,44 90,43 87,53 76,54" fill="#020617" stroke="#0F172A" strokeWidth="1.5" />
+            <line x1="72" y1="45" x2="68" y2="45" stroke="#0F172A" strokeWidth="1.5" />
+            <line x1="77" y1="46" x2="83" y2="46" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
+            {/* Bowtie */}
+            <polygon points="60,53 66,56 60,59" fill="#0F172A" />
+            <polygon points="56,53 50,56 56,59" fill="#0F172A" />
+            <circle cx="58" cy="56" r="1.5" fill="#FFFFFF" />
+          </g>
+        );
+
       // THE ASSASSIN (Instant Defeat)
       case 'assassin_1':
       default:

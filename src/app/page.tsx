@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { AVATAR_OPTIONS } from '@/data/characters';
 import { AvatarIcon } from '@/components/art/AvatarIcon';
 import { CharacterArt } from '@/components/art/CharacterArt';
+import { CodLogo } from '@/components/art/CodLogo';
 import { EXPANSION_PACKS } from '@/data/expansions';
 import {
   Play,
@@ -22,7 +23,7 @@ export default function HomePage() {
   const router = useRouter();
 
   const [nickname, setNickname] = useState('');
-  const [avatarId, setAvatarId] = useState('red_1');
+  const [avatarId, setAvatarId] = useState('cod_agent');
   const [joinCode, setJoinCode] = useState('');
   const [customRoomCode, setCustomRoomCode] = useState('');
   const [showCustomCode, setShowCustomCode] = useState(false);
@@ -104,19 +105,7 @@ export default function HomePage() {
       {/* HERO HEADER */}
       <header className="border-b border-slate-800 bg-slate-900/60 backdrop-blur-md px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg shadow-amber-950/50">
-              C
-            </div>
-            <div>
-              <h1 className="font-black text-xl tracking-wider uppercase text-white leading-none">
-                Cod<span className="text-amber-400">names</span>
-              </h1>
-              <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400">
-                Top Secret Espionage Party Game
-              </span>
-            </div>
-          </div>
+          <CodLogo size="md" showText={true} />
 
           <div className="hidden sm:flex items-center gap-3 text-xs text-slate-400 font-semibold">
             <span className="flex items-center gap-1">
