@@ -19,14 +19,14 @@ export const CodLogo: React.FC<CodLogoProps> = ({
   };
 
   const textSizes = {
-    sm: 'text-sm',
-    md: 'text-lg',
+    sm: 'text-base',
+    md: 'text-xl',
     lg: 'text-2xl',
-    xl: 'text-3xl',
+    xl: 'text-4xl',
   };
 
   return (
-    <div className={`flex items-center gap-2.5 select-none ${className}`}>
+    <div className={`flex items-center gap-3 select-none ${className}`}>
       {/* EXACT SPY COD BADGE FROM UPLOADED IMAGE */}
       <div
         className={`${iconSizes[size]} relative rounded-2xl overflow-hidden shadow-lg shadow-black/50 group-hover:scale-105 transition-transform shrink-0 border border-slate-700 bg-white flex items-center justify-center p-0.5`}
@@ -38,15 +38,15 @@ export const CodLogo: React.FC<CodLogoProps> = ({
         />
       </div>
 
-      {/* OPTIONAL TYPOGRAPHY */}
+      {/* TYPOGRAPHY */}
       {showText && (
         <div className="flex flex-col">
           <div
-            className={`font-black tracking-wider uppercase text-white leading-none ${textSizes[size]}`}
+            className={`font-display font-black tracking-wider uppercase text-white leading-none ${textSizes[size]}`}
           >
             Cod<span className="text-amber-400">names</span>
           </div>
-          <span className="text-[9px] font-bold tracking-widest uppercase text-slate-400">
+          <span className="text-xs font-semibold tracking-widest uppercase text-slate-300 font-display mt-0.5">
             Espionage Party Game
           </span>
         </div>

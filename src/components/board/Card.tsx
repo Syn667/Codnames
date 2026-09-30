@@ -128,7 +128,7 @@ export const CardComponent: React.FC<CardProps> = ({
 
             {/* Bottom: Word again in larger type */}
             <div className="text-center z-10">
-              <span className="text-xs md:text-sm lg:text-base font-extrabold tracking-wider drop-shadow-sm uppercase">
+              <span className="font-display text-xs md:text-sm lg:text-base font-extrabold tracking-wider drop-shadow-sm uppercase">
                 {card.word}
               </span>
             </div>
@@ -181,7 +181,7 @@ export const CardComponent: React.FC<CardProps> = ({
 
             {/* Center: Word */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-1">
-              <span className="text-sm md:text-base lg:text-lg font-black tracking-wider uppercase text-slate-100 group-hover:text-amber-300 transition-colors">
+              <span className="font-display text-sm md:text-base lg:text-lg font-black tracking-wider uppercase text-slate-100 group-hover:text-amber-300 transition-colors">
                 {card.word}
               </span>
             </div>
